@@ -7,6 +7,7 @@ public class Main {
         String path="D:\\Java\\sources.list";
 
       String content=readFileByBufferedReader(path);
+        //替换字符串里Fix为haha
        String s= content.replace("Fix","haha");
        boolean successful= writeByBufferedWriter(s,path);
         System.out.println(successful);
