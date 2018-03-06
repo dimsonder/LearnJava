@@ -10,7 +10,7 @@ public class FileIOUtils {
 
     /**
      * 文件读写，分别介绍几种组合方式，供参考
-     * <p>
+     * 
      * 一般用BufferedReader和BufferedWriter，使用它们的一般流程是，先创建File对象（可以对路径和文件进行更多的操作），
      * 然后通过File对象创建FileReader（FileWriter）【当然在这里也可以通过创建InputStreamReader（new InputStream）来获取reader对象，看个人爱好】
      * 然后通过FileReader（FileWriter）获得BufferedReader（BufferedWriter）对象。对于读入文件，还可以使用Scanner对读取的文件进行操作，这个比较方便
@@ -67,7 +67,7 @@ public class FileIOUtils {
 
     // 节点流FileInputStream读取字节流
     public static String readFileByBytes(String fileName) {
-        // 一般先创建file对象
+        // 一般先创建FileInputStream对象
         FileInputStream fileInput = null;
 
         //写入字符串
