@@ -32,35 +32,6 @@ public class Main {
         return read;
     }
 
-    //文件读取：节点流FileInputStream读取字节流
-    FileInputStream fileInputStream;
-
-            File file = new File(fileName);
-            if (!file.exists()) {
-
-                file.createNewFile();
-            }
-            byte[] buffer = new byte[2048];
-            fileInputStream = new FileInputStream(file);
-// byte//byteRead表示一次读取到buffers中的数量
-            int byteRead = 0;
-            while ((byteRead = fileInputStream.read(buffer)) != -1) {
-                content=new String(buffer,0,byteRead);
-                System.out.write(buffer, 0, byteRead);
-            }
-
-        } catch (IOException e) {
-
-            e.printStackTrace();
-        }
-
-        return content;
-
-  
-
-
-
-
     public static boolean writeByBufferedWriter(String content,String fileName){
         try {
             File file= new File(fileName);
@@ -68,8 +39,8 @@ public class Main {
             if (!file.exists()){
                 file.createNewFile();
             }
-//         true时允许追加
- //           FileWriter fileWriter=new FileWriter(file,true);
+            //true时允许追加
+            //FileWriter fileWriter=new FileWriter(file,true);
             FileWriter fileWriter=new FileWriter(file);
 
             BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
