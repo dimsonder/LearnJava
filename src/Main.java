@@ -6,7 +6,7 @@ public class Main {
         System.out.println("Hello World!");
         String path="D:\\Java\\sources.list";
 
-      String content=readFileByBytes(path);
+      String content=readFileByBufferedReader(path);
        String s= content.replace("Fix","haha");
        boolean successful= writeByBufferedWriter(s,path);
         System.out.println(successful);
@@ -33,10 +33,7 @@ public class Main {
     }
 
     //文件读取：节点流FileInputStream读取字节流
-    public static String readFileByBytes(String fileName) {
-        String content=null;
-        try {
-            FileInputStream fileInputStream;
+    FileInputStream fileInputStream;
 
             File file = new File(fileName);
             if (!file.exists()) {
@@ -59,37 +56,10 @@ public class Main {
 
         return content;
 
-    }
-//    文件读取:节点流FileReader读取字符流  其实FileReader也是需要FileInputStream对象转换的，要借助于InputStreamReader转换流。
-    public static void readFileByChars(String fileName) {
-        FileReader reader = null;
-        try {
-            File file = new File(fileName);
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-            reader = new FileReader(file);
-            char[] buffer = new char[1024];
-            int charread = 0;
-            while ((charread = reader.read(buffer)) != -1) {
-                System.out.print(buffer);
-            }
-        } catch (IOException e) {
-            // TODO: handle exception
+  
 
-        } finally {
 
-            try {
-                if (reader != null) {
-                    reader.close();
-                }
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        }
 
-    }
 
     public static boolean writeByBufferedWriter(String content,String fileName){
         try {
